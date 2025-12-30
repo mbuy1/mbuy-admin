@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import AdminLayout from "@/components/layout/AdminLayout";
 
 const cairo = Cairo({
   variable: "--font-cairo",
@@ -9,8 +10,8 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "MBUY Admin",
-  description: "لوحة تحكم MBUY",
+  title: "MBUY Admin - لوحة تحكم المالك",
+  description: "لوحة تحكم المالك لإدارة منصة MBUY",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
@@ -24,6 +25,9 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#0B1220",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -33,8 +37,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={`${cairo.variable} font-sans antialiased`}>
-        {children}
+      <body className={`${cairo.variable} font-sans antialiased bg-[#0B1220]`}>
+        <AdminLayout>{children}</AdminLayout>
       </body>
     </html>
   );

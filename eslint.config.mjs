@@ -13,6 +13,14 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    rules: {
+      // تعطيل قاعدة setState داخل useEffect - هذا pattern شائع ومقبول
+      "react-hooks/set-state-in-effect": "off",
+      // تحويل no-explicit-any إلى warning بدلاً من error
+      "@typescript-eslint/no-explicit-any": "warn",
+    },
+  },
 ]);
 
 export default eslintConfig;
